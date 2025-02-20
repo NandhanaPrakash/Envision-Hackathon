@@ -1,0 +1,26 @@
+{
+    "manifest_version": 3,
+    "name": "Netflix Usage Tracker",
+    "version": "1.0",
+    "description": "Tracks Netflix usage and suggests cancellations if inactive",
+    "permissions": ["storage", "activeTab", "scripting", "notifications"],
+    "host_permissions": ["https://www.netflix.com/*"],
+    "background": {
+      "service_worker": "background.js"
+    },
+    "content_scripts": [
+      {
+        "matches": ["https://www.netflix.com/*"],
+        "js": ["content.js"]
+      }
+    ],
+    "action": {
+      "default_popup": "popup.html",
+      "default_icon": {
+        "16": "icon.png",
+        "48": "icon.png",
+        "128": "icon.png"
+      }
+    }
+  }
+  
